@@ -1,6 +1,6 @@
 # Moments Demo
 
-![hippo]([[https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHBpOTR0enVjd24yMnhvMzJ0Z21heXB2aTdyenk2c2ZxcmZzNG5rdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EWooQbLD5Tt3vVOtnh/giphy.gif)](https://github.com/rrabbi2021/COT6930-Assignment1/blob/main/Animation.gif))
+![me](https://github.com/rrabbi2021/COT6930-Assignment1/blob/main/Animation.gif)
 
 ## Dependencies
 
