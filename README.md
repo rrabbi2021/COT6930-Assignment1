@@ -7,21 +7,22 @@ Demo: http://moments.helloflask.com
 ![Screenshot](demo.png)
 
 ## Dependencies
-flask>=3.0.2
-flask-sqlalchemy>=3.1.1
-flask-login>=0.6.3
-flask-dropzone>=1.6.0
-flask-mail>=0.9.1
-flask-wtf>=1.2.1
-flask-whooshee>=0.9.1
-flask-avatars>=0.2.3
-bootstrap-flask>=2.3.3
-python-dotenv>=1.0.1
-pillow>=10.2.0
-pyjwt>=2.8.0
-email-validator>=2.1.0.post1
-torch>=2.0.0
-transformers>=4.36.0
+
+- flask>=3.0.2
+- flask-sqlalchemy>=3.1.1
+- flask-login>=0.6.3
+- flask-dropzone>=1.6.0
+- flask-mail>=0.9.1
+- flask-wtf>=1.2.1
+- flask-whooshee>=0.9.1
+- flask-avatars>=0.2.3
+- bootstrap-flask>=2.3.3
+- python-dotenv>=1.0.1
+- pillow>=10.2.0
+- pyjwt>=2.8.0
+- email-validator>=2.1.0.post1
+- torch>=2.0.0
+- transformers>=4.36.0
 
 ## Installation
 
