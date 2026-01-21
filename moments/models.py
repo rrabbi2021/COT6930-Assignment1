@@ -285,6 +285,8 @@ class Photo(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     description: Mapped[Optional[str]] = mapped_column(String(500))
+    alt_text: Mapped[Optional[str]] = mapped_column(String(500))
+    keywords: Mapped[Optional[str]] = mapped_column(String(500))
     filename: Mapped[str] = mapped_column(String(64))
     filename_s: Mapped[str] = mapped_column(String(64))
     filename_m: Mapped[str] = mapped_column(String(64))

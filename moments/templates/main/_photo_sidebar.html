@@ -35,6 +35,8 @@
       <p>
         {% if photo.description %}
         {{ photo.description }}
+        {% elif photo.alt_text %}
+        <small class="text-muted">{{ photo.alt_text }}</small>
         {% else %}
         <small class="text-muted">No description</small>
         {% endif %}

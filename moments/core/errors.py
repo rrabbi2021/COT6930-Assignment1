@@ -26,4 +26,4 @@ def register_error_handlers(app):
     @app.errorhandler(CSRFError)
     def handle_csrf_error(error):
         description = 'Session expired, return last page and try again.'
-        return render_template('errors/400.html', description=description), 500
+        return render_template('errors/400.html', description=description), 400

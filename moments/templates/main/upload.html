@@ -26,4 +26,16 @@
 {{ super() }}
 <script src="{{ url_for('static', filename='js/dropzone.min.js') }}"></script>
 {{ dropzone.config() }}
+<script>
+  // Ensure Dropzone includes CSRF token for Flask-WTF.
+  // Flask-Dropzone can be finicky across versions; this makes it explicit.
+  if (window.Dropzone && typeof csrfToken !== 'undefined') {
+    Dropzone.options.myDropzone = Dropzone.options.myDropzone || {};
+    Dropzone.options.myDropzone.headers = Object.assign(
+      {},
+      Dropzone.options.myDropzone.headers || {},
+      { 'X-CSRFToken': csrfToken }
+    );
+  }
+</script>
 {% endblock %}

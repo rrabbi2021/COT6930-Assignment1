@@ -8,6 +8,32 @@ Demo: http://moments.helloflask.com
 
 ## Installation
 
+### Bash (macOS/Linux/Git Bash)
+
+```bash
+python3 -m venv env
+source env/bin/activate
+python -m pip install -r requirements.txt
+
+python -m flask --app app.py init-app
+python -m flask --app app.py lorem
+python -m flask --app app.py run
+```
+
+Open http://127.0.0.1:5000/
+
+Login created by `flask lorem`:
+
+- email: `admin@helloflask.com`
+- password: `moments`
+
+Open http://127.0.0.1:5000/
+
+Login created by `flask lorem`:
+
+- email: `admin@helloflask.com`
+- password: `moments`
+
 Clone the repo:
 
 ```

@@ -8,7 +8,7 @@ from moments.decorators import confirm_required, permission_required
 from moments.forms.main import CommentForm, DescriptionForm, TagForm
 from moments.models import Collection, Comment, Follow, Notification, Photo, Tag, User
 from moments.notifications import push_collect_notification, push_comment_notification
-from moments.utils import flash_errors, redirect_back, rename_image, resize_image, validate_image
+from moments.utils import flash_errors, redirect_back, rename_image, resize_image, validate_image, generate_image_metadata
 
 main_bp = Blueprint('main', __name__)
 
@@ -63,7 +63,13 @@ def search():
     elif category == 'tag':
         pagination = Tag.query.whooshee_search(q).paginate(page=page, per_page=per_page)
     else:
-        pagination = Photo.query.whooshee_search(q).paginate(page=page, per_page=per_page)
+        # Search in description, alt text, and keywords
+        stmt = select(Photo).filter(
+            (Photo.description.ilike(f'%{q}%')) | 
+            (Photo.alt_text.ilike(f'%{q}%')) |
+            (Photo.keywords.ilike(f'%{q}%'))
+        ).order_by(Photo.created_at.desc())
+        pagination = db.paginate(stmt, page=page, per_page=per_page)
     results = pagination.items
     return render_template('main/search.html', q=q, results=results, pagination=pagination, category=category)
 
@@ -130,14 +136,22 @@ def upload():
         if not validate_image(f.filename):
             return 'Invalid image.', 400
         filename = rename_image(f.filename)
-        f.save(current_app.config['MOMENTS_UPLOAD_PATH'] / filename)
-        filename_s = resize_image(f, filename, current_app.config['MOMENTS_PHOTO_SIZES']['small'])
-        filename_m = resize_image(f, filename, current_app.config['MOMENTS_PHOTO_SIZES']['medium'])
+        image_path = current_app.config['MOMENTS_UPLOAD_PATH'] / filename
+        f.save(image_path)
+
+        filename_s = resize_image(image_path, filename, current_app.config['MOMENTS_PHOTO_SIZES']['small'])
+        filename_m = resize_image(image_path, filename, current_app.config['MOMENTS_PHOTO_SIZES']['medium'])
+
+        alt_text, keywords = generate_image_metadata(str(image_path))
+        
         photo = Photo(
-            filename=filename, filename_s=filename_s, filename_m=filename_m, author=current_user._get_current_object()
+            filename=filename, filename_s=filename_s, filename_m=filename_m, 
+            alt_text=alt_text, keywords=keywords, author=current_user._get_current_object()
         )
         db.session.add(photo)
         db.session.commit()
+        return 'ok', 200
+
     return render_template('main/upload.html')
 
 
