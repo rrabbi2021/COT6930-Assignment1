@@ -1,10 +1,6 @@
-# Moments
+# Moments Demo
 
-A photo sharing social networking app built with Python and Flask. The example application for the book *[Flask from Beginner to Advanced: Python Web Engineering Practices](https://helloflask.com/en/book/4)* (《[Flask 从入门到进阶：Python Web 开发工程化实践](https://helloflask.com/book/4)》).
-
-Demo: http://moments.helloflask.com
-
-![Screenshot](demo.png)
+![hippo]([https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHBpOTR0enVjd24yMnhvMzJ0Z21heXB2aTdyenk2c2ZxcmZzNG5rdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EWooQbLD5Tt3vVOtnh/giphy.gif))
 
 ## Dependencies
 
@@ -32,12 +28,13 @@ Demo: http://moments.helloflask.com
 git clone https://github.com/rrabbi2021/COT6930-Assignment1.git
 python3 -m venv env
 source env/bin/activate
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 
-python -m flask --app app.py init-app
-python -m flask --app app.py lorem
-python -m flask --app app.py run
+flask --app app.py init-db
+flask --app app.py lorem
+flask --app app.py run
 ```
+IMPORTANT!!! Please make sure to clear browser cache before uploading images, there is an unkown error causing uploads to fail at times.
 
 Open http://127.0.0.1:5000/
 
