@@ -11,6 +11,7 @@ Demo: http://moments.helloflask.com
 ### Bash (macOS/Linux/Git Bash)
 
 ```bash
+git clone https://github.com/rrabbi2021/COT6930-Assignment1.git
 python3 -m venv env
 source env/bin/activate
 python -m pip install -r requirements.txt
@@ -26,53 +27,6 @@ Login created by `flask lorem`:
 
 - email: `admin@helloflask.com`
 - password: `moments`
-
-Open http://127.0.0.1:5000/
-
-Login created by `flask lorem`:
-
-- email: `admin@helloflask.com`
-- password: `moments`
-
-Clone the repo:
-
-```
-$ git clone https://github.com/greyli/moments
-$ cd moments
-```
-
-Install dependencies with [PDM](https://pdm.fming.dev):
-
-```
-$ pdm install
-```
-
-> [!TIP]
-> If you don't have PDM installed, you can create a virtual environment with `venv` and install dependencies with `pip install -r requirements.txt`.
-
-To initialize the app, run the `flask init-app` command:
-
-```
-$ pdm run flask init-app
-```
-
-If you just want to try it out, generate fake data with `flask lorem` command then run the app:
-
-```
-$ pdm run flask lorem
-```
-
-It will create a test account:
-
-* email: `admin@helloflask.com`
-* password: `moments`
-
-Now you can run the app:
-
-```
-$ pdm run flask run
-* Running on http://127.0.0.1:5000/
-```
 
 ## License
 
