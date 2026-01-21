@@ -129,14 +129,6 @@ def redirect_back(default='main.index', **kwargs):
             return redirect(target)
     return redirect(url_for(default, **kwargs))
 
-
-def generate_alt_text(filename):
-    """Generate alt text from filename. Returns 'Photo' for unrecognizable names."""
-    name = Path(filename).stem.replace('_', ' ').replace('-', ' ')
-    words = [w for w in name.split() if not (len(w) >= 8 and all(c in '0123456789abcdef' for c in w))]
-    return ' '.join(words).title() if words else 'Photo'
-
-
 def flash_errors(form):
     for field, errors in form.errors.items():
         for error in errors:
